@@ -12,7 +12,6 @@ for (i in seq_along(p_vals)) {
   trans_sum <- 0
   sp_sum <- 0
   for (j in 1:n) {
-    print(i)
     ws_graph <- sample_smallworld(1, 1000, 4, p)
     trans <- transitivity(ws_graph, type = "undirected", vids = NULL,
                           weights = NULL)
@@ -22,8 +21,6 @@ for (i in seq_along(p_vals)) {
   }
   avg_clustering[i] <- trans_sum / n
   avg_shortest_path[i] <- sp_sum / n
-  print(trans_sum/n)
-  print(avg_clustering)
 }
 
 #Normalize them
