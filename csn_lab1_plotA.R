@@ -2,7 +2,7 @@
 library(igraph)
 
 p_vals <- 10^(seq(-4,0,0.2))
-n <- 10
+n <- 100
 
 avg_clustering <- vector(mode = "numeric", length = length(p_vals))
 avg_shortest_path <- vector(mode = "numeric", length = length(p_vals))
@@ -29,5 +29,7 @@ sp <- avg_shortest_path/avg_shortest_path[1]
 
 x = data.frame(v1 = p_vals, v2 = sp, v3 = trans)
 
-plot(p_vals,trans, ylim = c(0,1), ylab='coeff', log='x')
+plot(p_vals,trans, ylim = c(0,1), ylab='Normalised Values', xlab='p', log='x')
 points(p_vals,sp, ylim = c(0,1), ylab='coeff',pch=15)
+
+legend("topright", legend = c("Clustering Coefficient", "Average Shortest Path"), pch = c(16, 15))
