@@ -21,18 +21,6 @@ for (i in seq_along(n_vals)) {
   }
 
   avg_shortest_path[i] <- sp_sum / samples
-  
-
-  avg_shortest_path[is.na(avg_shortest_path)] <- 0
-  y_upper_limit <- ceiling(max(avg_shortest_path))
-  x_upper_limit <- ceiling(max(n_vals))
-  
-  plot(n_vals, avg_shortest_path,
-       ylab='average shortest path',
-       xlab='num nodes',
-       xlim = c(0, x_upper_limit),
-       ylim = c(0, y_upper_limit),
-       type = "b")
 }
 
 avg_shortest_path[is.na(avg_shortest_path)] <- 0
