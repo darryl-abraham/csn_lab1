@@ -1,17 +1,17 @@
 #install.packages("igraph")
 library(igraph)
 
-n_vals <- seq(1, 40000, 1000)
+n_vals <- 2^seq(1, 18, 1)
 samples <- 2
-p <- 0.01
+p <- 0
 
 avg_shortest_path <- vector(mode = "numeric", length = length(n_vals))
 
 for (i in seq_along(n_vals)) {
   
   n <- n_vals[i]
-  print(n)
   sp_sum <- 0
+  p <- 1.0000001 * log(n)/n
 
   for (j in 1:samples) {
     er_graph <- sample_gnp(n, p)
